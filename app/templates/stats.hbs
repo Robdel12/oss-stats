@@ -1,0 +1,6 @@
+{{#each-in model as |name value|}}
+  <h2>{{name}}</h2>
+  {{#each-in value as |key value|}}
+    <p>{{key}}: {{value}}</p>
+  {{/each-in}}
+{{/each-in}}
