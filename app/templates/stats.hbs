@@ -6,13 +6,13 @@
 <table class="table table-striped">
   <thead>
     <tr>
-      <th>Package Name</th>
+      <th class="sortable" {{action "sort" "package"}}>Package Name</th>
       <th>Date range</th>
-      <th>Downloads</th>
+      <th class="sortable" {{action "sort" "downloads"}}>Downloads</th>
     </tr>
   </thead>
   <tbody>
-    {{#each model as |package|}}
+    {{#each sortedModel as |package|}}
       <tr>
         <td>{{package.package}}</td>
         <td>{{moment-format package.start "MMMM Do YYYY"}} - {{moment-format package.end "MMMM Do YYYY"}}</td>
