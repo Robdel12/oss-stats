@@ -1,9 +1,10 @@
-{{#x-select action="changeRange"}}
+{{#x-select action="changeRange" value=range}}
   {{#x-option value="day"}}Last day{{/x-option}}
   {{#x-option value="week"}}Last week{{/x-option}}
   {{#x-option value="month"}}Last month{{/x-option}}
 {{/x-select}}
-<table class="table table-striped">
+
+<table class="table table-bordered table-striped">
   <thead>
     <tr>
       <th class="sortable" {{action "sort" "package"}}>Package Name</th>
@@ -19,5 +20,9 @@
         <td>{{pretty-number package.downloads}}</td>
       </tr>
     {{/each}}
+    <tr>
+      <td colspan="2"><b>Total:</b></td>
+      <td>{{pretty-number totalDownloads}}</td>
+    </tr>
   </tbody>
 </table>
