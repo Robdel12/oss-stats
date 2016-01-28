@@ -7,6 +7,7 @@ export default Ember.Route.extend({
       refreshModel: true
     }
   },
+
   model(params) {
     return Ember.$.getJSON(`https://api.npmjs.org/downloads/point/last-${params.range}/${PACKAGE_LIST}`).then((data) => {
       let npmPackage;
@@ -22,7 +23,6 @@ export default Ember.Route.extend({
 
   actions: {
     changeRange(value) {
-      console.log(value);
       this.transitionTo('stats', { queryParams: { range: value }});
     }
   }

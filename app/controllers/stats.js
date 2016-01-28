@@ -1,7 +1,7 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
-  range: "week",
+  range: "day",
   queryParams: ['range'],
   sortDirection: 'desc',
   sortProperties: ['downloads:desc'],
