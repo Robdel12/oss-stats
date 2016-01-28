@@ -1,6 +1,18 @@
-{{#each-in model as |name value|}}
-  <h2>{{name}}</h2>
-  {{#each-in value as |key value|}}
-    <p>{{key}}: {{value}}</p>
-  {{/each-in}}
-{{/each-in}}
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Package Name</th>
+      <th>Date range</th>
+      <th>Downloads</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each model as |package|}}
+      <tr>
+        <td>{{package.package}}</td>
+        <td>{{package.start}} - {{package.end}}</td>
+        <td>{{pretty-number package.downloads}}</td>
+      </tr>
+    {{/each}}
+  </tbody>
+</table>

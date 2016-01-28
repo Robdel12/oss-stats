@@ -3,6 +3,15 @@ const PACKAGE_LIST = "emberx-select,emberx-file-input,ember-impagination,ember-p
 
 export default Ember.Route.extend({
   model() {
-    return Ember.$.getJSON(`https://api.npmjs.org/downloads/point/last-week/${PACKAGE_LIST}`);
+    return Ember.$.getJSON(`https://api.npmjs.org/downloads/point/last-week/${PACKAGE_LIST}`).then((data) => {
+      let npmPackage;
+      let dataArray = [];
+
+      for(npmPackage in data) {
+        dataArray.push(data[npmPackage]);
+      }
+
+      return dataArray;
+    });
   }
 });
