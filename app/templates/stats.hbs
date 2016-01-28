@@ -1,3 +1,8 @@
+{{#x-select action="changeRange"}}
+  {{#x-option value="day"}}Last day{{/x-option}}
+  {{#x-option value="week"}}Last week{{/x-option}}
+  {{#x-option value="month"}}Last month{{/x-option}}
+{{/x-select}}
 <table class="table table-striped">
   <thead>
     <tr>
@@ -10,7 +15,7 @@
     {{#each model as |package|}}
       <tr>
         <td>{{package.package}}</td>
-        <td>{{package.start}} - {{package.end}}</td>
+        <td>{{moment-format package.start "MMMM Do YYYY"}} - {{moment-format package.end "MMMM Do YYYY"}}</td>
         <td>{{pretty-number package.downloads}}</td>
       </tr>
     {{/each}}

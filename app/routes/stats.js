@@ -2,8 +2,13 @@ import Ember from 'ember';
 const PACKAGE_LIST = "emberx-select,emberx-file-input,ember-impagination,ember-promise-helpers,emberx-file-reader,emberx-select-blockless,ember-introjs";
 
 export default Ember.Route.extend({
-  model() {
-    return Ember.$.getJSON(`https://api.npmjs.org/downloads/point/last-week/${PACKAGE_LIST}`).then((data) => {
+  queryParams: {
+    range: {
+      refreshModel: true
+    }
+  },
+  model(params) {
+    return Ember.$.getJSON(`https://api.npmjs.org/downloads/point/last-${params.range}/${PACKAGE_LIST}`).then((data) => {
       let npmPackage;
       let dataArray = [];
 
@@ -13,5 +18,12 @@ export default Ember.Route.extend({
 
       return dataArray;
     });
+  },
+
+  actions: {
+    changeRange(value) {
+      console.log(value);
+      this.transitionTo('stats', { queryParams: { range: value }});
+    }
   }
 });
