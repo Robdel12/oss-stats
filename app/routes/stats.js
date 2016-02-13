@@ -1,5 +1,5 @@
 import Ember from 'ember';
-const PACKAGE_LIST = "emberx-select,emberx-file-input,ember-impagination,ember-promise-helpers,emberx-file-reader,emberx-select-blockless,ember-introjs,virtual-each";
+const PACKAGE_LIST = "emberx-select,emberx-file-input,ember-impagination,ember-promise-helpers,emberx-file-reader,emberx-select-blockless,ember-introjs,virtual-each,emberx-range-input";
 
 export default Ember.Route.extend({
   queryParams: {
