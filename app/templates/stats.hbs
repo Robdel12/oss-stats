@@ -1,4 +1,4 @@
-<h1 id="title">Downloads in the last {{range}}</h1>
+<h1 class="is-size-1">Downloads in the last {{range}}</h1>
 
 {{#x-select action=(route-action "changeRange") value=range as |xs|}}
   {{#xs.option value="day"}}Last day{{/xs.option}}
@@ -6,7 +6,7 @@
   {{#xs.option value="month"}}Last month{{/xs.option}}
 {{/x-select}}
 
-<table class="table table-bordered table-striped">
+<table class="table is-bordered is-striped is-fullwidth">
   <thead>
     <tr>
       <th class="sortable" {{action "sort" "package"}}>Package Name</th>
