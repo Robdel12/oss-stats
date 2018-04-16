@@ -1,9 +1,9 @@
 <h1 id="title">Downloads in the last {{range}}</h1>
 
-{{#x-select action="changeRange" value=range}}
-  {{#x-option value="day"}}Last day{{/x-option}}
-  {{#x-option value="week"}}Last week{{/x-option}}
-  {{#x-option value="month"}}Last month{{/x-option}}
+{{#x-select action=(route-action "changeRange") value=range as |xs|}}
+  {{#xs.option value="day"}}Last day{{/xs.option}}
+  {{#xs.option value="week"}}Last week{{/xs.option}}
+  {{#xs.option value="month"}}Last month{{/xs.option}}
 {{/x-select}}
 
 <table class="table table-bordered table-striped">
