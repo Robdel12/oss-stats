@@ -12,7 +12,8 @@
   "scripts": {
     "build": "ember build",
     "start": "ember server",
-    "test": "ember test"
+    "test": "ember test",
+    "deploy": "ember surge"
   },
   "devDependencies": {
     "broccoli-asset-rev": "^2.4.5",
@@ -32,6 +33,7 @@
     "ember-cli-sass": "^6.1.2",
     "ember-cli-shims": "^1.1.0",
     "ember-cli-sri": "^2.1.0",
+    "ember-cli-surge": "^1.2.0",
     "ember-cli-uglify": "^1.2.0",
     "ember-data": "^2.13.0",
     "ember-export-application-global": "^2.0.0",
