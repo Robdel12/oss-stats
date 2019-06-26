@@ -1,16 +1,16 @@
-import Ember from 'ember';
+import Ember from "ember";
 
 export default Ember.Controller.extend({
   range: "day",
-  queryParams: ['range'],
-  sortDirection: 'desc',
-  sortProperties: ['downloads:desc'],
-  sortedModel: Ember.computed.sort('model', 'sortProperties'),
+  queryParams: ["range"],
+  sortDirection: "desc",
+  sortProperties: ["downloads:desc"],
+  sortedModel: Ember.computed.sort("model", "sortProperties"),
 
-  totalDownloads: Ember.computed('sortedModel.[]', function() {
+  totalDownloads: Ember.computed("sortedModel.[]", function() {
     let total = 0;
 
-    this.get('model').forEach((npmPackage) => {
+    this.get("model").forEach(npmPackage => {
       total += npmPackage.downloads;
     });
 
@@ -19,7 +19,9 @@ export default Ember.Controller.extend({
 
   actions: {
     sort(column) {
-      this.get('sortDirection') === "desc" ? this.set('sortDirection', "asc") : this.set('sortDirection', "desc");
+      this.get("sortDirection") === "desc"
+        ? this.set("sortDirection", "asc")
+        : this.set("sortDirection", "desc");
 
       this.set("sortProperties", [`${column}:${this.get("sortDirection")}`]);
     }

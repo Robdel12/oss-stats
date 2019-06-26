@@ -1,22 +1,19 @@
-import Ember from 'ember';
+import Ember from "ember";
 const PACKAGE_LIST = [
-  // "@bigtest/convergence",
-  // "@bigtest/interactor",
-  // "@bigtest/mocha",
-  // "@bigtest/mirage",
-  "microstates",
-  "funcadelic",
-  "emberx-select",
-  "emberx-form",
-  "ember-let",
-  "emberx-file-input",
-  "emberx-range-input",
-  "emberx-xml-http-request",
-  "impagination",
-  "ember-impagination",
-  "emberx-slider",
-  "emberx-select-blockless"
-].join(',');
+  "@percy/agent",
+  "@percy/cypress",
+  "@percy/puppeteer",
+  "@percy/storybook",
+  "@percy-io/percy-storybook",
+  "@percy/nightwatch",
+  "@percy/nightmare",
+  "@percy/protractor",
+  "@percy/script",
+  "@percy/webdriverio",
+  "percy-client",
+  "ember-percy",
+  "percy"
+];
 
 export default Ember.Route.extend({
   queryParams: {
@@ -26,21 +23,24 @@ export default Ember.Route.extend({
   },
 
   model(params) {
-    return Ember.$.getJSON(`https://api.npmjs.org/downloads/point/last-${params.range}/${PACKAGE_LIST}`).then((data) => {
-      let npmPackage;
-      let dataArray = [];
+    let promiseArray = PACKAGE_LIST.map(async packageName => {
+      let data = await Ember.$.getJSON(
+        `https://api.npmjs.org/downloads/point/last-${
+          params.range
+        }/${packageName}`
+      );
 
-      for(npmPackage in data) {
-        dataArray.push(data[npmPackage]);
-      }
+      return data;
+    });
 
-      return dataArray;
+    return Promise.all(promiseArray).then(completed => {
+      return completed;
     });
   },
 
   actions: {
     changeRange(value) {
-      this.transitionTo('stats', { queryParams: { range: value }});
+      this.transitionTo("stats", { queryParams: { range: value } });
     }
   }
 });
