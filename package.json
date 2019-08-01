@@ -44,7 +44,7 @@
     "ember-source": "~2.13.0",
     "emberx-select": "^3.0.0",
     "loader.js": "^4.2.3",
-    "moment": "^2.19.0",
+    "moment": "^2.24.0",
     "moment-timezone": "0.5.0"
   },
   "engines": {
