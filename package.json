@@ -39,7 +39,7 @@
     "ember-export-application-global": "^2.0.0",
     "ember-load-initializers": "^1.0.0",
     "ember-moment": "7.8.1",
-    "ember-resolver": "^4.0.0",
+    "ember-resolver": "^5.3.0",
     "ember-route-action-helper": "^2.0.6",
     "ember-source": "~2.13.0",
     "emberx-select": "^3.0.0",
